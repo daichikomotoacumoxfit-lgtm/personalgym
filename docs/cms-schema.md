@@ -79,6 +79,7 @@ Heroのボタン文言・料金・時間はplansから生成します。固定�
 | `bookingUrl` | すべての体験予約ボタンのリンク先 | テキスト | 必須 |
 | `lineUrl` | LINEのURL | テキスト | 任意 |
 | `instagramUrl` | InstagramのURL | テキスト | 任意 |
+| `threadsUrl` | ThreadsのURL | テキスト | 任意 |
 | `address` | 確定した実際の提供場所の住所 | テキスト | 任意 |
 | `nearestStation` | 最寄り駅 | テキスト | 任意 |
 | `walkingMinutes` | 駅からの徒歩分数 | 数値 | 任意 |

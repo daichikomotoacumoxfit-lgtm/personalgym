@@ -5,7 +5,7 @@ export const sectionKeys = ['hero','trialOffer','painPoints','desiredFuture','in
 export type SectionKey = typeof sectionKeys[number];
 export type LP = Record<SectionKey, Section> & { id?: string };
 export type SiteSettings = {
-  storeName?: string; concept: string; bookingUrl: string; lineUrl?: string; instagramUrl?: string;
+  storeName?: string; concept: string; bookingUrl: string; lineUrl?: string; instagramUrl?: string; threadsUrl?: string;
   address?: string; nearestStation?: string; walkingMinutes?: number; hours?: string; closedDays?: string; phone?: string;
   serviceLocation: string; areas: string; bookingGuidance: string; belongings: string;
   trainerName: string; trainerPhoto?: CMSImage; qualifications: string; career: string; biography: string;

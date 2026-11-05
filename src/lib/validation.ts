@@ -13,7 +13,7 @@ export function normalizeData(raw: { lp: unknown; settings: unknown; plans: unkn
   const settings = { ...raw.settings } as SiteSettings;
   for (const key of ['concept','serviceLocation','areas','bookingGuidance','belongings','trainerName','qualifications','career','biography'] as const) if (!str(settings[key])) settings[key] = '';
   settings.bookingUrl = safeHttps(settings.bookingUrl)!;
-  settings.lineUrl = safeHttps(settings.lineUrl); settings.instagramUrl = safeHttps(settings.instagramUrl); settings.legalUrl = safeHttps(settings.legalUrl);
+  settings.lineUrl = safeHttps(settings.lineUrl); settings.instagramUrl = safeHttps(settings.instagramUrl); settings.threadsUrl = safeHttps(settings.threadsUrl); settings.legalUrl = safeHttps(settings.legalUrl);
   if (!image(settings.trainerPhoto)) delete settings.trainerPhoto;
   const lp = {} as LP;
   for (const key of sectionKeys) {

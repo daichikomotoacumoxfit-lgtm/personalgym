@@ -26,6 +26,11 @@ test('unsafe reservation URLs fail closed; external links cannot execute scripts
  for(const bad of ['javascript:alert(1)','http://example.com','https://user:pass@example.com','/reserve'])assert.equal(safeHttps(bad),undefined);
  const raw=fixture();raw.settings.bookingUrl='javascript:alert(1)';assert.throws(()=>normalizeData(raw));
 });
+test('profile social links accept HTTPS and reject unsafe schemes',()=>{
+ const raw=fixture();Object.assign(raw.settings,{lineUrl:'https://line.me/R/ti/p/example',instagramUrl:'https://www.instagram.com/example/',threadsUrl:'https://www.threads.net/@example'});
+ const data=normalizeData(raw);assert.equal(data.settings.threadsUrl,'https://www.threads.net/@example');
+ Object.assign(raw.settings,{threadsUrl:'javascript:alert(1)'});assert.equal(normalizeData(raw).settings.threadsUrl,undefined);
+});
 test('malformed prices are not rendered and real published testimonials are supported',()=>{
  const raw=fixture();raw.plans[0].price=NaN;
  const data=normalizeData({...raw,testimonials:[{id:'real',published:true,comment:'利用者から提供された感想',order:1},{id:'hidden',published:false,comment:'非公開'}]});
