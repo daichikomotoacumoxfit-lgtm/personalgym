@@ -171,10 +171,10 @@
           "title": "整体で身体をケアする",
           "text": "肩や首のつらさ、筋肉の緊張や関節の動きなど、今の状態に合わせてケアを行います。",
           "image": {
-            "url": "/images/services.png",
-            "width": 1536,
-            "height": 1024,
-            "alt": "整体で身体をケアする（イメージ）"
+            "url": "/images/profile/body-care.jpg",
+            "width": 912,
+            "height": 1600,
+            "alt": "河本大地が肩まわりの動きを確認しながら施術している様子"
           }
         },
         {
@@ -182,10 +182,10 @@
           "title": "パーソナルトレーニングで身体を動かす",
           "text": "筋力や柔軟性、身体の動かし方を確認し、目的や体力に合わせた運動を行います。",
           "image": {
-            "url": "/images/services.png",
-            "width": 1536,
-            "height": 1024,
-            "alt": "パーソナルトレーニングで身体を動かす（イメージ）"
+            "url": "/images/profile/personal-training.jpg",
+            "width": 921,
+            "height": 1600,
+            "alt": "河本大地が一人ひとりの動きに合わせて運動を指導している様子"
           }
         },
         {
@@ -246,10 +246,10 @@
           "title": "整体・ボディケア",
           "text": "肩や腰のつらさなど、身体の状態に応じたケア。",
           "image": {
-            "url": "/images/services.png",
-            "width": 1536,
-            "height": 1024,
-            "alt": "整体・ボディケア（イメージ）"
+            "url": "/images/profile/body-care.jpg",
+            "width": 912,
+            "height": 1600,
+            "alt": "河本大地による整体・ボディケアの様子"
           }
         },
         {
@@ -258,10 +258,10 @@
           "title": "筋力トレーニング",
           "text": "体力や目的に合わせたマンツーマン指導。",
           "image": {
-            "url": "/images/services.png",
-            "width": 1536,
-            "height": 1024,
-            "alt": "筋力トレーニング（イメージ）"
+            "url": "/images/profile/personal-training.jpg",
+            "width": 921,
+            "height": 1600,
+            "alt": "河本大地によるマンツーマントレーニングの様子"
           }
         },
         {
@@ -270,10 +270,10 @@
           "title": "ストレッチ・運動指導",
           "text": "柔軟性や身体の動かし方に合わせた運動。",
           "image": {
-            "url": "/images/services.png",
-            "width": 1536,
-            "height": 1024,
-            "alt": "ストレッチ・運動指導（イメージ）"
+            "url": "/images/profile/mobility.jpg",
+            "width": 912,
+            "height": 1600,
+            "alt": "河本大地が姿勢と肩まわりの動きを確認している様子"
           }
         },
         {
@@ -282,10 +282,10 @@
           "title": "日常生活のアドバイス",
           "text": "仕事中の過ごし方や自宅でできる運動を提案。",
           "image": {
-            "url": "/images/services.png",
-            "width": 1536,
-            "height": 1024,
-            "alt": "日常生活のアドバイス（イメージ）"
+            "url": "/images/profile/assessment.jpg",
+            "width": 1179,
+            "height": 544,
+            "alt": "河本大地が骨模型を使って身体について説明している様子"
           }
         }
       ],
@@ -380,6 +380,12 @@
     "bookingGuidance": "詳細な利用場所は予約確定後に案内。完全予約制。",
     "belongings": "動きやすい服装。",
     "trainerName": "河本大地",
+    "trainerPhoto": {
+      "url": "/images/profile/trainer.jpg",
+      "width": 500,
+      "height": 596,
+      "alt": "パーソナルトレーナー河本大地"
+    },
     "qualifications": "パーソナルトレーナー\n鍼灸師\nあん摩マッサージ指圧師",
     "career": "以前はSEとして働き、長時間のデスクワークによる身体のつらさを経験しました。",
     "biography": "運動習慣を身につけたことで、仕事終わりや休日にも趣味を楽しめるようになった経験から、同じような悩みを持つデスクワーカーをサポートしています。\n一人ひとりの姿勢や身体の動きを確認し、状態に合わせた整体とトレーニングを提案します。\n身体の悩みも、目指したい生活も、人それぞれ。\nだからこそ、決まった施術や運動を押しつけるのではなく、今のあなたに必要なことを一緒に考えていきます。"

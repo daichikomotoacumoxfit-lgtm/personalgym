@@ -13,6 +13,9 @@ test('user-approved menu has six plans and a single consistent trial',()=>{
  assert.equal(data.settings.instagramUrl,'https://www.instagram.com/daichi.komoto.acumoxfit?vrfl=Z2MyaHp6YWl4d2Qy&utm_source=qr');
  assert.equal(data.settings.lineUrl,'https://lin.ee/np56EuG');
  assert.equal(data.settings.threadsUrl,'https://www.threads.com/@daichi.komoto.acumoxfit?igshid=NTc4MTIwNjQ2YQ==');
+ assert.equal(data.settings.trainerPhoto?.url,'/images/profile/trainer.jpg');
+ assert.equal(data.lp.services.items[0].image?.url,'/images/profile/body-care.jpg');
+ assert.equal(data.lp.services.items[1].image?.url,'/images/profile/personal-training.jpg');
 });
 test('CMS select arrays normalize; unpublished/deleted records disappear without fallback',()=>{
  const raw=fixture();const plans=raw.plans as unknown as Record<string,unknown>[];
