@@ -7,6 +7,7 @@ test('desktop: complete copy, all CTAs, prices, FAQ events and loaded images', a
  await expect(page.locator('main section')).toHaveCount(12);
  await expect(page.getByText('REAL STORIES',{exact:true})).toHaveCount(0);
  for(const link of await page.locator('a[data-booking]:not([data-location="consultation"])').all()) {await expect(link).toHaveAttribute('href',booking);await expect(link).toHaveAttribute('target','_blank');await expect(link).toHaveAttribute('rel','noopener noreferrer');}
+ await expect(page.locator('a[data-location="consultation"]')).toHaveAttribute('href','https://komotodaichi.stores.jp/reserve/honten-go0hwc/2909115/book/course_type?courseCanonicalId=951146');
  await expect(page.locator('#price')).toContainText('30,000');await expect(page.locator('#price')).toContainText('45,000');
  await page.locator('.faq summary').first().click();await expect(page.locator('.faq details').first()).toHaveAttribute('open','');
  await expect.poll(()=>page.evaluate(()=>((window as unknown as {dataLayer: {event:string}[]}).dataLayer||[]).some(e=>e.event==='faq_open'))).toBe(true);
