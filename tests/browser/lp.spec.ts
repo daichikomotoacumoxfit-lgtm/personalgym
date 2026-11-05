@@ -8,6 +8,10 @@ test('desktop: complete copy, all CTAs, prices, FAQ events and loaded images', a
  await expect(page.getByText('REAL STORIES',{exact:true})).toHaveCount(0);
  for(const link of await page.locator('a[data-booking]:not([data-location="consultation"])').all()) {await expect(link).toHaveAttribute('href',booking);await expect(link).toHaveAttribute('target','_blank');await expect(link).toHaveAttribute('rel','noopener noreferrer');}
  await expect(page.locator('a[data-location="consultation"]')).toHaveAttribute('href','https://komotodaichi.stores.jp/reserve/honten-go0hwc/2909115/book/course_type?courseCanonicalId=951146');
+ await expect(page.locator('.profile-socials a')).toHaveCount(3);
+ await expect(page.locator('.profile-socials a').filter({hasText:'公式LINE'})).toHaveAttribute('href','https://lin.ee/np56EuG');
+ await expect(page.locator('.profile-socials a').filter({hasText:'Instagram'})).toHaveAttribute('href','https://www.instagram.com/daichi.komoto.acumoxfit?vrfl=Z2MyaHp6YWl4d2Qy&utm_source=qr');
+ await expect(page.locator('.profile-socials a').filter({hasText:'Threads'})).toHaveAttribute('href','https://www.threads.com/@daichi.komoto.acumoxfit?igshid=NTc4MTIwNjQ2YQ==');
  await expect(page.locator('#price')).toContainText('30,000');await expect(page.locator('#price')).toContainText('45,000');
  await page.locator('.faq summary').first().click();await expect(page.locator('.faq details').first()).toHaveAttribute('open','');
  await expect.poll(()=>page.evaluate(()=>((window as unknown as {dataLayer: {event:string}[]}).dataLayer||[]).some(e=>e.event==='faq_open'))).toBe(true);

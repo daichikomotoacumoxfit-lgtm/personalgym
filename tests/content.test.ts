@@ -10,6 +10,9 @@ test('user-approved menu has six plans and a single consistent trial',()=>{
  assert.deepEqual([trial.price,trial.regularPrice,trial.duration],[4500,9500,90]);
  assert.equal(data.settings.bookingUrl,'https://komotodaichi.stores.jp/reserve/honten-go0hwc/2909115/book/course_type?courseCanonicalId=1199180');
  assert.equal(data.plans.find(p=>p.category==='consultation')?.bookingUrl,'https://komotodaichi.stores.jp/reserve/honten-go0hwc/2909115/book/course_type?courseCanonicalId=951146');
+ assert.equal(data.settings.instagramUrl,'https://www.instagram.com/daichi.komoto.acumoxfit?vrfl=Z2MyaHp6YWl4d2Qy&utm_source=qr');
+ assert.equal(data.settings.lineUrl,'https://lin.ee/np56EuG');
+ assert.equal(data.settings.threadsUrl,'https://www.threads.com/@daichi.komoto.acumoxfit?igshid=NTc4MTIwNjQ2YQ==');
 });
 test('CMS select arrays normalize; unpublished/deleted records disappear without fallback',()=>{
  const raw=fixture();const plans=raw.plans as unknown as Record<string,unknown>[];
