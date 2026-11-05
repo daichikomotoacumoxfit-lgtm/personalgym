@@ -31,7 +31,7 @@ npm run test:browser
 ### プレビューと本番の分離
 
 - 開発時：CMS未設定なら初期データ。CMSを試すときはCONTENT_MODEを削除するか `cms` にします。
-- `CONTENT_MODE=preview`：本番形式のローカル動作確認にも使える明示的なデザインプレビュー。noindex、robots拒否、sitemap空、プレビューバッジ付きです。
+- `CONTENT_MODE=preview`：本番形式のローカル動作確認にも使える明示的なデザインプレビュー。noindex、robots拒否、sitemap空です。
 - 公開時：`CONTENT_MODE=cms`、CMSのドメイン・キー・Webhook秘密値と `NEXT_PUBLIC_SITE_URL=https://実際の公開ドメイン` を設定してビルド・起動してください。`preview` のまま公開しないでください。
 - CMS未設定・取得失敗では初期データに切り替えません。確認中画面とnoindexになります。壊れたAPIで架空の口コミや古い仮料金を表示し続けません。
 - 正常取得を300秒キャッシュします。時間ベース再取得はstale-while-revalidateで、取得後600秒を超えたデータは表示しません。Webhook認証成功時は直ちにキャッシュを無効化し、次の表示で取得します。
