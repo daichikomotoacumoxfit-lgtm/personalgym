@@ -1,0 +1,488 @@
+{
+  "lp": {
+    "hero": {
+      "fieldId": "section",
+      "visible": true,
+      "eyebrow": "DESK WORKERS / BODY CARE & TRAINING",
+      "title": "仕事終わりに、\n好きなことを楽しめる身体へ。",
+      "body": "肩こり・腰痛・姿勢の悩みを抱えるデスクワーカーへ。\n整体とパーソナルトレーニングを組み合わせ、今の身体へのケアと、これからの身体づくりを一つのサービスでサポートします。",
+      "items": [
+        {
+          "fieldId": "item",
+          "title": "整体×運動の一体型サポート",
+          "text": ""
+        },
+        {
+          "fieldId": "item",
+          "title": "姿勢・身体の動きをチェック",
+          "text": ""
+        },
+        {
+          "fieldId": "item",
+          "title": "完全予約制のマンツーマン",
+          "text": ""
+        }
+      ],
+      "closing": "まずは身体の状態とお悩みをご相談ください",
+      "cta": true,
+      "image": {
+        "url": "/images/hero.png",
+        "width": 1536,
+        "height": 1024,
+        "alt": "仕事終わりの街を軽やかに歩く人物のイメージ"
+      }
+    },
+    "trialOffer": {
+      "fieldId": "section",
+      "visible": true,
+      "eyebrow": "FIRST SESSION",
+      "title": "その肩や腰のつらさ、\nまずは90分の体験から。",
+      "body": "肩や腰のつらさは、仕事中の姿勢や活動量、生活習慣など、さまざまな要因が関係します。\n初回体験では、お悩みや普段の過ごし方を伺い、姿勢や身体の動きを確認。\n今の状態に合わせて、整体とパーソナルトレーニングを体験していただきます。",
+      "items": [
+        {
+          "fieldId": "item",
+          "title": "カウンセリング",
+          "text": ""
+        },
+        {
+          "fieldId": "item",
+          "title": "姿勢・身体の動きのチェック",
+          "text": ""
+        },
+        {
+          "fieldId": "item",
+          "title": "整体とパーソナルトレーニング",
+          "text": ""
+        },
+        {
+          "fieldId": "item",
+          "title": "今後の身体づくりのご提案",
+          "text": ""
+        }
+      ],
+      "closing": "",
+      "cta": true
+    },
+    "painPoints": {
+      "fieldId": "section",
+      "visible": true,
+      "eyebrow": "DOES THIS SOUND FAMILIAR?",
+      "title": "仕事が終わる頃には、\n身体も気持ちもぐったり。",
+      "body": "",
+      "items": [
+        {
+          "fieldId": "item",
+          "title": "夕方になると首や肩が重くなり、仕事に集中しづらい",
+          "text": ""
+        },
+        {
+          "fieldId": "item",
+          "title": "長時間座っていると腰がつらく、何度も座り直してしまう",
+          "text": ""
+        },
+        {
+          "fieldId": "item",
+          "title": "マッサージを受けても、しばらくするとまたつらくなる",
+          "text": ""
+        },
+        {
+          "fieldId": "item",
+          "title": "運動した方がいいと思っているけれど、何から始めればいいかわからない",
+          "text": ""
+        },
+        {
+          "fieldId": "item",
+          "title": "仕事が終わると疲れて、家ではスマホを見て寝るだけ",
+          "text": ""
+        },
+        {
+          "fieldId": "item",
+          "title": "休日も疲れを取ることが優先で、やりたいことが後回しになる",
+          "text": ""
+        }
+      ],
+      "closing": "本当は、仕事だけで一日を終わらせたくない。\n趣味を楽しんだり、運動をしたり、大切な人と出かけたり。\n身体のつらさを理由に、やりたいことを諦めない毎日を目指しませんか？",
+      "cta": false
+    },
+    "desiredFuture": {
+      "fieldId": "section",
+      "visible": true,
+      "eyebrow": "LIFE AFTER WORK",
+      "title": "仕事が終わってからの時間も、\nあなたの大切な人生だから。",
+      "body": "",
+      "items": [
+        {
+          "fieldId": "item",
+          "title": "好きなことを楽しむ夜に。",
+          "text": "帰宅後に料理をしたり、趣味に没頭したり。仕事以外の時間も充実させたい。",
+          "image": {
+            "url": "/images/lifestyle.png",
+            "width": 1536,
+            "height": 1024,
+            "alt": "好きなことを楽しむ夜に。（イメージ）"
+          }
+        },
+        {
+          "fieldId": "item",
+          "title": "出かけたくなる身体に。",
+          "text": "仕事終わりの散歩や友人との食事も、もっと気軽に楽しみたい。",
+          "image": {
+            "url": "/images/lifestyle.png",
+            "width": 1536,
+            "height": 1024,
+            "alt": "出かけたくなる身体に。（イメージ）"
+          }
+        },
+        {
+          "fieldId": "item",
+          "title": "運動を楽しめる毎日に。",
+          "text": "身体の不安を減らし、やってみたかった運動にも挑戦したい。",
+          "image": {
+            "url": "/images/lifestyle.png",
+            "width": 1536,
+            "height": 1024,
+            "alt": "運動を楽しめる毎日に。（イメージ）"
+          }
+        },
+        {
+          "fieldId": "item",
+          "title": "休日も自分らしく。",
+          "text": "休むだけで終わらず、好きな場所へ出かける余裕を持ちたい。",
+          "image": {
+            "url": "/images/lifestyle.png",
+            "width": 1536,
+            "height": 1024,
+            "alt": "休日も自分らしく。（イメージ）"
+          }
+        }
+      ],
+      "closing": "目指すのは、その場だけ身体が軽く感じることではありません。\n仕事も、趣味も、休日も。\n自分のやりたいことを楽しめる身体づくりを、一緒に。",
+      "cta": true
+    },
+    "integratedApproach": {
+      "fieldId": "section",
+      "visible": true,
+      "eyebrow": "CARE & TRAINING",
+      "title": "ほぐすだけでも、\n鍛えるだけでもない。",
+      "body": "今のつらさへのケアと、これからの身体づくりを。",
+      "items": [
+        {
+          "fieldId": "item",
+          "title": "整体で身体をケアする",
+          "text": "肩や首のつらさ、筋肉の緊張や関節の動きなど、今の状態に合わせてケアを行います。",
+          "image": {
+            "url": "/images/services.png",
+            "width": 1536,
+            "height": 1024,
+            "alt": "整体で身体をケアする（イメージ）"
+          }
+        },
+        {
+          "fieldId": "item",
+          "title": "パーソナルトレーニングで身体を動かす",
+          "text": "筋力や柔軟性、身体の動かし方を確認し、目的や体力に合わせた運動を行います。",
+          "image": {
+            "url": "/images/services.png",
+            "width": 1536,
+            "height": 1024,
+            "alt": "パーソナルトレーニングで身体を動かす（イメージ）"
+          }
+        },
+        {
+          "fieldId": "item",
+          "title": "その日の状態に合わせて組み合わせる",
+          "text": "身体のつらさが強い日は整体を中心に、運動に取り組める日はトレーニングを中心に。\n一人ひとりの状態に合わせて内容を調整します。"
+        }
+      ],
+      "closing": "施術だけで終わらない。\nトレーニングだけでも終わらない。\nあなたの日常が少しずつ変わっていくことを大切にしています。",
+      "cta": false
+    },
+    "benefits": {
+      "fieldId": "section",
+      "visible": true,
+      "eyebrow": "WHY CHOOSE US",
+      "title": "あなたの身体と生活に合わせて、\n無理なく続けられる3つの理由。",
+      "body": "",
+      "items": [
+        {
+          "fieldId": "item",
+          "title": "一人ひとりの状態を確認してから始める",
+          "text": "同じ肩こり・腰痛でも、身体の状態や生活習慣は人それぞれ。\n姿勢や関節の動き、筋力、普段の過ごし方などを確認し、その人に合った施術と運動を提案します。"
+        },
+        {
+          "fieldId": "item",
+          "title": "整体と運動を一つの場所で受けられる",
+          "text": "身体のケアは整体、運動はジム。\n別々に通うのではなく、一つのサービスで両方をサポート。\nその日の状態に応じて整体とトレーニングを組み合わせられることが特徴です。"
+        },
+        {
+          "fieldId": "item",
+          "title": "仕事や生活に合わせて続けやすい",
+          "text": "大切なのは、一度頑張ることよりも、無理なく続けられること。\n運動経験や体力、仕事の忙しさも考慮しながら、一人ひとりに合ったペースを一緒に考えます。"
+        }
+      ],
+      "closing": "",
+      "cta": true
+    },
+    "testimonials": {
+      "fieldId": "section",
+      "visible": true,
+      "eyebrow": "REAL STORIES",
+      "title": "身体の変化が、\n毎日の楽しみにつながる。",
+      "body": "",
+      "items": [],
+      "closing": "",
+      "cta": false
+    },
+    "services": {
+      "fieldId": "section",
+      "visible": true,
+      "eyebrow": "OUR SERVICES",
+      "title": "その日の身体に合わせて、\nケアも運動も。",
+      "body": "疲れが強い日もあれば、しっかり身体を動かせる日もある。\nだから、毎回決まった内容をこなすのではなく、身体の状態や目標に合わせてサポートします。",
+      "items": [
+        {
+          "fieldId": "item",
+          "label": "BODY CARE",
+          "title": "整体・ボディケア",
+          "text": "肩や腰のつらさなど、身体の状態に応じたケア。",
+          "image": {
+            "url": "/images/services.png",
+            "width": 1536,
+            "height": 1024,
+            "alt": "整体・ボディケア（イメージ）"
+          }
+        },
+        {
+          "fieldId": "item",
+          "label": "PERSONAL TRAINING",
+          "title": "筋力トレーニング",
+          "text": "体力や目的に合わせたマンツーマン指導。",
+          "image": {
+            "url": "/images/services.png",
+            "width": 1536,
+            "height": 1024,
+            "alt": "筋力トレーニング（イメージ）"
+          }
+        },
+        {
+          "fieldId": "item",
+          "label": "MOBILITY",
+          "title": "ストレッチ・運動指導",
+          "text": "柔軟性や身体の動かし方に合わせた運動。",
+          "image": {
+            "url": "/images/services.png",
+            "width": 1536,
+            "height": 1024,
+            "alt": "ストレッチ・運動指導（イメージ）"
+          }
+        },
+        {
+          "fieldId": "item",
+          "label": "LIFESTYLE SUPPORT",
+          "title": "日常生活のアドバイス",
+          "text": "仕事中の過ごし方や自宅でできる運動を提案。",
+          "image": {
+            "url": "/images/services.png",
+            "width": 1536,
+            "height": 1024,
+            "alt": "日常生活のアドバイス（イメージ）"
+          }
+        }
+      ],
+      "closing": "",
+      "cta": false
+    },
+    "pricing": {
+      "fieldId": "section",
+      "visible": true,
+      "eyebrow": "PLANS & PRICING",
+      "title": "あなたのペースで、\n無理なく続けられるプランを。",
+      "body": "",
+      "items": [],
+      "closing": "まずは初回体験で、サービスが自分に合うかお確かめください。",
+      "cta": true
+    },
+    "trialFlow": {
+      "fieldId": "section",
+      "visible": true,
+      "eyebrow": "HOW IT WORKS",
+      "title": "初めての方も、\n安心してお越しください。",
+      "body": "",
+      "items": [
+        {
+          "fieldId": "item",
+          "title": "ご予約",
+          "text": "STORES予約ページから希望日時を選択。"
+        },
+        {
+          "fieldId": "item",
+          "title": "カウンセリング",
+          "text": "お悩みや仕事・生活の状況、目標をヒアリング。"
+        },
+        {
+          "fieldId": "item",
+          "title": "身体のチェック",
+          "text": "姿勢・動き・筋力などを必要に応じて確認。"
+        },
+        {
+          "fieldId": "item",
+          "title": "整体・運動体験",
+          "text": "状態に合わせた整体やトレーニングを体験。"
+        },
+        {
+          "fieldId": "item",
+          "title": "今後のご提案",
+          "text": "継続する場合のプランや料金をご案内。"
+        }
+      ],
+      "closing": "",
+      "cta": false
+    },
+    "trainerProfile": {
+      "fieldId": "section",
+      "visible": true,
+      "eyebrow": "ABOUT THE TRAINER",
+      "title": "仕事も、好きなことも。\nどちらも楽しめる毎日を支えたい。",
+      "body": "",
+      "items": [],
+      "closing": "",
+      "cta": false
+    },
+    "accessAndFAQ": {
+      "fieldId": "section",
+      "visible": true,
+      "eyebrow": "ACCESS & FAQ",
+      "title": "お会いできるのを、\n楽しみにしています。",
+      "body": "",
+      "items": [],
+      "closing": "",
+      "cta": false
+    },
+    "finalCTA": {
+      "fieldId": "section",
+      "visible": true,
+      "eyebrow": "YOUR LIFE.\nAFTER WORK.",
+      "title": "仕事だけで終わらない毎日を。",
+      "body": "仕事終わりの時間も、休日も。\nもっと自分の好きなことに使えるように。\n今の肩や腰のつらさと、これからの身体づくりについて、まずは一度ご相談ください。",
+      "items": [],
+      "closing": "",
+      "cta": true
+    }
+  },
+  "settings": {
+    "concept": "仕事終わりに、好きなことを楽しめる身体へ。",
+    "bookingUrl": "https://komotodaichi.stores.jp/reserve/honten-go0hwc",
+    "serviceLocation": "東京都内のレンタルジム",
+    "areas": "雪が谷大塚駅周辺\n中延駅周辺\n五反田駅周辺",
+    "bookingGuidance": "詳細な利用場所は予約確定後に案内。完全予約制。",
+    "belongings": "動きやすい服装。",
+    "trainerName": "河本大地",
+    "qualifications": "パーソナルトレーナー\n鍼灸師\nあん摩マッサージ指圧師",
+    "career": "以前はSEとして働き、長時間のデスクワークによる身体のつらさを経験しました。",
+    "biography": "運動習慣を身につけたことで、仕事終わりや休日にも趣味を楽しめるようになった経験から、同じような悩みを持つデスクワーカーをサポートしています。\n一人ひとりの姿勢や身体の動きを確認し、状態に合わせた整体とトレーニングを提案します。\n身体の悩みも、目指したい生活も、人それぞれ。\nだからこそ、決まった施術や運動を押しつけるのではなく、今のあなたに必要なことを一緒に考えていきます。"
+  },
+  "plans": [
+    {
+      "id": "trial",
+      "name": "【初回限定】整体×パーソナル90分体験",
+      "category": "trial",
+      "price": 4500,
+      "duration": 90,
+      "order": 0,
+      "published": true,
+      "regularPrice": 9500
+    },
+    {
+      "id": "regular60",
+      "name": "整体×パーソナル60分",
+      "category": "regular",
+      "price": 6500,
+      "duration": 60,
+      "order": 1,
+      "published": true
+    },
+    {
+      "id": "regular90",
+      "name": "整体×パーソナル90分",
+      "category": "regular",
+      "price": 9500,
+      "duration": 90,
+      "order": 2,
+      "published": true
+    },
+    {
+      "id": "ticket60",
+      "name": "60分 5回券",
+      "category": "ticket",
+      "price": 30000,
+      "duration": 60,
+      "order": 3,
+      "published": true,
+      "sessions": 5
+    },
+    {
+      "id": "ticket90",
+      "name": "90分 5回券",
+      "category": "ticket",
+      "price": 45000,
+      "duration": 90,
+      "order": 4,
+      "published": true,
+      "sessions": 5
+    },
+    {
+      "id": "consultation",
+      "name": "初回無料WEBカウンセリング",
+      "category": "consultation",
+      "price": 0,
+      "duration": 30,
+      "order": 5,
+      "published": true
+    }
+  ],
+  "faqs": [
+    {
+      "id": "faq1",
+      "question": "運動が苦手でも大丈夫ですか？",
+      "answer": "はい。運動経験や体力に合わせて内容を調整します。久しぶりに運動する方もご相談ください。",
+      "order": 0,
+      "published": true
+    },
+    {
+      "id": "faq2",
+      "question": "整体とトレーニングは毎回両方行いますか？",
+      "answer": "その日の状態や目的に合わせて内容を調整します。具体的な時間配分や提供内容はプランによって異なります。",
+      "order": 1,
+      "published": true
+    },
+    {
+      "id": "faq3",
+      "question": "肩こりや腰痛があっても運動できますか？",
+      "answer": "症状や状態によります。初回にお話を伺い、必要に応じて医療機関での診察をおすすめする場合があります。",
+      "order": 2,
+      "published": true
+    },
+    {
+      "id": "faq4",
+      "question": "仕事が忙しくても続けられますか？",
+      "answer": "生活スタイルや通える頻度を伺い、無理のないペースをご提案します。",
+      "order": 3,
+      "published": true
+    },
+    {
+      "id": "faq5",
+      "question": "整体が初めてでも大丈夫ですか？",
+      "answer": "施術前に内容をご説明し、不安なことを確認します。施術内容は状態やご希望に合わせて調整します。",
+      "order": 4,
+      "published": true
+    },
+    {
+      "id": "faq6",
+      "question": "体験したら入会しないといけませんか？",
+      "answer": "いいえ。体験後にサービス内容や料金をご確認いただき、ご自身で判断していただけます。",
+      "order": 5,
+      "published": true
+    }
+  ],
+  "testimonials": []
+}
