@@ -371,7 +371,7 @@
   },
   "settings": {
     "concept": "仕事終わりに、好きなことを楽しめる身体へ。",
-    "bookingUrl": "https://komotodaichi.stores.jp/reserve/honten-go0hwc",
+    "bookingUrl": "https://komotodaichi.stores.jp/reserve/honten-go0hwc/2909115/book/course_type",
     "serviceLocation": "東京都内のレンタルジム",
     "areas": "雪が谷大塚駅周辺\n中延駅周辺\n五反田駅周辺",
     "bookingGuidance": "詳細な利用場所は予約確定後に案内。完全予約制。",
@@ -437,7 +437,8 @@
       "price": 0,
       "duration": 30,
       "order": 5,
-      "published": true
+      "published": true,
+      "bookingUrl": "https://komotodaichi.stores.jp/reserve/honten-go0hwc"
     }
   ],
   "faqs": [

@@ -153,3 +153,5 @@ STORESのURLは環境のプロキシから403で取得を拒否されたため�
 ## Web上で一般公開する
 
 Vercelでの公開手順は [docs/deployment.md](docs/deployment.md) を参照してください。CMS未接続の確認用公開と、CMS接続後の正式公開を区別しています。クラウド開発環境の公開だけではWebサイトは一般公開されません。
+
+現在の初回体験CTAは `https://komotodaichi.stores.jp/reserve/honten-go0hwc/2909115/book/course_type` に直接移動します。無料WEBカウンセリングは、体験コースと混同しないよう予約メニュー一覧への個別リンクを初期データに設定しています。CMSへ移行する際もこの設定を引き継いでください。

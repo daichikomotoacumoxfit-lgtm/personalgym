@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-const booking='https://komotodaichi.stores.jp/reserve/honten-go0hwc';
+const booking='https://komotodaichi.stores.jp/reserve/honten-go0hwc/2909115/book/course_type';
 test('desktop: complete copy, all CTAs, prices, FAQ events and loaded images', async({page})=>{
  await page.setViewportSize({width:1440,height:1000});
  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));

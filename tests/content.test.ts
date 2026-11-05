@@ -8,7 +8,8 @@ test('user-approved menu has six plans and a single consistent trial',()=>{
  assert.equal(data.plans.length,6); assert.equal(data.testimonials.length,0);
  const trial=data.plans.find(p=>p.category==='trial')!;
  assert.deepEqual([trial.price,trial.regularPrice,trial.duration],[4500,9500,90]);
- assert.equal(data.settings.bookingUrl,'https://komotodaichi.stores.jp/reserve/honten-go0hwc');
+ assert.equal(data.settings.bookingUrl,'https://komotodaichi.stores.jp/reserve/honten-go0hwc/2909115/book/course_type');
+ assert.equal(data.plans.find(p=>p.category==='consultation')?.bookingUrl,'https://komotodaichi.stores.jp/reserve/honten-go0hwc');
 });
 test('CMS select arrays normalize; unpublished/deleted records disappear without fallback',()=>{
  const raw=fixture();const plans=raw.plans as unknown as Record<string,unknown>[];
