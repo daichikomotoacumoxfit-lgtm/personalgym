@@ -3,14 +3,63 @@ const booking='https://komotodaichi.stores.jp/reserve/honten-go0hwc/2909115/book
 test('desktop: complete copy, all CTAs, prices, FAQ events and loaded images', async({page})=>{
  await page.setViewportSize({width:1440,height:1000});
  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
- await page.goto('/');await expect(page.locator('h1')).toContainText('好きなことを楽しめる身体へ。');
- await expect(page.locator('main section')).toHaveCount(12);
+ await page.goto('/');await expect(page.locator('h1')).toHaveText('肩こりに悩む毎日から、 仕事終わりも楽しめる毎日へ。');
+ await expect(page.locator('.hero-copy')).toContainText('元SEの国家資格保有トレーナー');
+ await expect(page.locator('.hero-note')).toContainText('初回90分 ¥4,500（税込）');
+ await expect(page.locator('.hero-note')).toContainText('体験後の入会義務なし');
+ await expect(page.locator('main > section').nth(1)).toHaveClass(/\bpain\b/);
+ await expect(page.locator('.pain-content li')).toHaveCount(6);
+ await expect(page.locator('.pain-closing')).toHaveText('その日のつらさに向き合うケアと、無理なく始める運動を。');
+ const trialDetails=page.getByRole('link',{name:'体験内容を見る'});
+ await expect(trialDetails).toHaveAttribute('href','#trial');
+ await trialDetails.click();
+ await expect(page).toHaveURL(/#trial$/);
+ await expect(page.locator('main > section')).toHaveCount(10);
+ const service=page.locator('#service');
+ await expect(service.getByRole('heading',{name:'今のつらさにケアを。これからの身体に運動を。'})).toBeVisible();
+ await expect(service.locator('.approach-details h3')).toHaveText([
+  '今の状態を確認する','必要なケアと運動を組み合わせる','日常でも続けられる方法を考える',
+ ]);
+ await expect(service.locator('.service-summary li')).toHaveCount(4);
+ const intro=page.locator('#service + #features');
+ await expect(intro.getByRole('heading',{name:'デスクワークのつらさを知っているから。'})).toBeVisible();
+ await expect(intro.getByRole('img',{name:/河本大地/})).toBeVisible();
+ for(const credential of ['鍼灸師','あん摩マッサージ指圧師','パーソナルトレーナー']){
+  await expect(intro.locator('.trainer-intro-name')).toContainText(credential);
+ }
+ const navigation=page.getByRole('navigation',{name:'メインメニュー'});
+ await expect(navigation.getByRole('link',{name:'SERVICE'})).toHaveAttribute('href','#service');
+ await expect(navigation.getByRole('link',{name:'FEATURES'})).toHaveAttribute('href','#features');
+ await intro.getByRole('link',{name:'担当者について詳しく見る'}).click();
+ await expect(page).toHaveURL(/#trainer$/);
+ await expect(page.locator('#trainer .trainer-name')).toHaveText('河本大地');
  await expect(page.getByText('REAL STORIES',{exact:true})).toHaveCount(0);
- for(const link of await page.locator('a[data-booking]:not([data-location="consultation"])').all()) {await expect(link).toHaveAttribute('href',booking);await expect(link).toHaveAttribute('target','_blank');await expect(link).toHaveAttribute('rel','noopener noreferrer');}
- await expect(page.locator('a[data-location="consultation"]')).toHaveAttribute('href','https://komotodaichi.stores.jp/reserve/honten-go0hwc/2909115/book/course_type?courseCanonicalId=951146');
+ const trial=page.locator('#trial');
+ await expect(trial.locator('.trial-steps li > div')).toHaveText([
+  'カウンセリング','姿勢・動きの確認','整体と運動の体験','今後のご提案',
+ ]);
+ await expect(trial.locator('.trial-price')).toContainText('4,500');
+ await expect(trial.locator('.trial-price')).toContainText('9,500');
+ await expect(trial.locator('.trial-note')).toHaveText('体験後に入会する義務はありません。');
+ await expect(page.locator('#price .pricing-trial')).toHaveCount(0);
+ await expect(page.locator('#price .pricing-trial-link')).toHaveAttribute('href','#trial');
+ await expect(page.locator('.flow')).toHaveCount(0);
+ await expect(page.locator('.future-item h3')).toHaveText([
+  '仕事終わりに、趣味を楽しむ。','休日に、出かける楽しみを。','無理なく、運動を続ける。',
+ ]);
+ await expect(page.locator('#access .faq details')).toHaveCount(6);
+ for(const link of await page.locator('a[data-booking]:not(.consultation)').all()) {await expect(link).toHaveAttribute('href',booking);await expect(link).toHaveAttribute('target','_blank');await expect(link).toHaveAttribute('rel','noopener noreferrer');}
+ const consultationUrl='https://komotodaichi.stores.jp/reserve/honten-go0hwc/2909115/book/course_type?courseCanonicalId=951146';
+ for(const container of [trial,page.locator('.final')]){
+  await expect(container.getByRole('link',{name:'初回90分体験を予約する'})).toHaveAttribute('href',booking);
+  const consultation=container.getByRole('link',{name:/まずは無料WEBカウンセリングで相談する/});
+  await expect(consultation).toHaveAttribute('href',consultationUrl);
+  await expect(consultation).toHaveAttribute('target','_blank');
+  await expect(consultation).toHaveAttribute('rel','noopener noreferrer');
+ }
  await expect(page.locator('.profile-socials a')).toHaveCount(3);
  await expect(page.locator('.profile-socials .social-icon svg')).toHaveCount(3);
- await expect(page.locator('.photo.real-photo')).toHaveCount(7);
+ await expect(page.locator('#approach .photo.real-photo')).toHaveCount(2);
  await expect(page.locator('.profile-socials a').filter({hasText:'公式LINE'})).toHaveAttribute('href','https://lin.ee/np56EuG');
  await expect(page.locator('.profile-socials a').filter({hasText:'Instagram'})).toHaveAttribute('href','https://www.instagram.com/daichi.komoto.acumoxfit?vrfl=Z2MyaHp6YWl4d2Qy&utm_source=qr');
  await expect(page.locator('.profile-socials a').filter({hasText:'Threads'})).toHaveAttribute('href','https://www.threads.com/@daichi.komoto.acumoxfit?igshid=NTc4MTIwNjQ2YQ==');
@@ -28,6 +77,20 @@ test('desktop: complete copy, all CTAs, prices, FAQ events and loaded images', a
 for(const width of [375,390,768,1024])test(`responsive ${width}: no overflow, fixed reservation access`,async({page})=>{
  await page.setViewportSize({width,height:844});await page.goto('/');
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBe(true);
+ if(width<761){
+  const steps=await page.locator('.approach-details li').evaluateAll(items=>items.map(item=>item.getBoundingClientRect().top));
+  expect(steps[0]).toBeLessThan(steps[1]);
+  expect(steps[1]).toBeLessThan(steps[2]);
+  const photo=await page.locator('.trainer-intro-photo').boundingBox();
+  const heading=await page.locator('.trainer-intro h2').boundingBox();
+  expect(photo!.y+photo!.height).toBeLessThan(heading!.y);
+  for(const selector of ['.hero h1','.hero-actions .cta']){
+   const box=await page.locator(selector).boundingBox();
+   expect(box).not.toBeNull();
+   expect(box!.y).toBeGreaterThanOrEqual(75);
+   expect(box!.y+box!.height).toBeLessThanOrEqual(844-64);
+  }
+ }
  if(width<761){await expect(page.locator('.sticky-cta')).toBeVisible();await page.locator('.menu-toggle').click();await expect(page.locator('#mobile-nav')).toBeVisible();await page.keyboard.press('Escape');await expect(page.locator('#mobile-nav')).toBeHidden();}
  await page.locator('footer').scrollIntoViewIfNeeded();
  const selector=width<761?'.sticky-cta':'.header-booking';
@@ -37,4 +100,53 @@ for(const width of [375,390,768,1024])test(`responsive ${width}: no overflow, fi
 test('webhook denies missing or incorrect secrets',async({request})=>{
  expect((await request.post('/api/revalidate')).status()).toBe(401);
  expect((await request.post('/api/revalidate',{headers:{'x-webhook-secret':'incorrect'}})).status()).toBe(401);
+});
+
+test('preview metadata, image alternatives and internal destinations', async ({page,request})=>{
+ await page.goto('/');
+ await expect(page.locator('html')).toHaveAttribute('lang','ja');
+ await expect(page.getByRole('heading',{level:1})).toHaveCount(1);
+ await expect(page).toHaveTitle('デスクワーカーの肩こり・腰痛に｜整体×パーソナルトレーニング');
+ const description=await page.locator('meta[name="description"]').getAttribute('content');
+ expect(description).toContain('肩こり・腰痛');
+ await expect(page.locator('meta[property="og:description"]')).toHaveAttribute('content',description!);
+ await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content',/noindex/);
+ await expect(page.locator('script[type="application/ld+json"]')).toHaveCount(0);
+ const headingLevels=await page.getByRole('heading').evaluateAll(headings=>headings.map(heading=>Number(heading.tagName.slice(1))));
+ for(let i=1;i<headingLevels.length;i++) expect(headingLevels[i]).toBeLessThanOrEqual(headingLevels[i-1]+1);
+ for(const img of await page.getByRole('main').locator('img').all()) await expect(img).toHaveAttribute('alt',/\S/);
+ const missing=await page.locator('a[href^="#"]').evaluateAll(links=>links.map(link=>link.getAttribute('href')!.slice(1)).filter(id=>!document.getElementById(id)));
+ expect(missing).toEqual([]);
+ const robots=await request.get('/robots.txt');
+ expect(robots.ok()).toBe(true);
+ expect(await robots.text()).toMatch(/^Disallow: \/$/m);
+ const sitemap=await request.get('/sitemap.xml');
+ expect(sitemap.ok()).toBe(true);
+ expect(await sitemap.text()).not.toContain('<loc>');
+ const ogImage=await request.get('/opengraph-image');
+ expect(ogImage.ok()).toBe(true);
+ expect(ogImage.headers()['content-type']).toMatch(/^image\//);
+});
+
+test('mobile keyboard navigation returns focus on menu dismissal and operates FAQ',async({page})=>{
+ await page.setViewportSize({width:375,height:812});
+ await page.goto('/');
+ await page.keyboard.press('Tab');
+ await expect(page.getByRole('link',{name:'本文へスキップ'})).toBeFocused();
+ await page.keyboard.press('Tab');
+ const menu=page.getByRole('button',{name:'メニューを開く'});
+ await expect(menu).toBeFocused();
+ await page.keyboard.press('Enter');
+ await page.keyboard.press('Tab');
+ await page.keyboard.press('Tab');
+ await expect(page.getByRole('navigation',{name:'モバイルメニュー'}).getByRole('link',{name:'CONCEPT'})).toBeFocused();
+ await page.keyboard.press('Escape');
+ await expect(menu).toBeFocused();
+ await expect(menu).toHaveAttribute('aria-expanded','false');
+ const summary=page.locator('.faq summary').first();
+ await summary.focus();
+ await page.keyboard.press('Enter');
+ await expect(page.locator('.faq details').first()).toHaveAttribute('open','');
+ await page.keyboard.press('Space');
+ await expect(page.locator('.faq details').first()).not.toHaveAttribute('open','');
 });

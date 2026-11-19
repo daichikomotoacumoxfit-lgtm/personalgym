@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import type { Plan, SiteSettings } from '@/types/cms';
 export const navItems = [['CONCEPT','concept'],['SERVICE','service'],['FEATURES','features'],['PRICE','price'],['ACCESS','access']] as const;
@@ -20,10 +20,20 @@ export function Analytics() {
 }
 export function Header({settings,visible}:{settings:SiteSettings;visible:string[]}) {
   const [open,setOpen]=useState(false);
-  useEffect(()=>{const onKey=(e:KeyboardEvent)=>{if(e.key==='Escape')setOpen(false);};window.addEventListener('keydown',onKey);return()=>window.removeEventListener('keydown',onKey);},[]);
+  const menuToggle = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    if (!open) return;
+    function onKey(event: KeyboardEvent) {
+      if (event.key !== 'Escape') return;
+      setOpen(false);
+      menuToggle.current?.focus();
+    }
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [open]);
   return <header className="site-header"><a href="#main" className="skip-link">本文へスキップ</a><div className="header-inner">
     <nav aria-label="メインメニュー" className="desktop-nav">{navItems.filter(([,id])=>visible.includes(id)).map(([label,id])=><a key={id} href={`#${id}`}>{label}</a>)}</nav>
-    <button className="menu-toggle" onClick={()=>setOpen(!open)} aria-label={open?'メニューを閉じる':'メニューを開く'} aria-expanded={open} aria-controls="mobile-nav">{open?<X size={23}/>:<Menu size={23}/>}</button>
+    <button ref={menuToggle} className="menu-toggle" onClick={()=>setOpen(!open)} aria-label={open?'メニューを閉じる':'メニューを開く'} aria-expanded={open} aria-controls="mobile-nav">{open?<X size={23}/>:<Menu size={23}/>}</button>
     <a className="wordmark" href="#main" aria-label="ページの先頭へ"><span>{settings.storeName || settings.trainerName || '整体 × パーソナル'}</span><small>BODY CARE & PERSONAL TRAINING</small></a>
     <a className="header-booking" href={settings.bookingUrl} target="_blank" rel="noopener noreferrer" data-booking data-location="header">体験予約 <ArrowUpRight size={17}/></a>
   </div><nav id="mobile-nav" className={`mobile-nav ${open?'is-open':''}`} aria-label="モバイルメニュー" inert={!open}>{navItems.filter(([,id])=>visible.includes(id)).map(([label,id])=><a key={id} href={`#${id}`} onClick={()=>setOpen(false)}>{label}<ArrowUpRight size={19}/></a>)}</nav></header>;

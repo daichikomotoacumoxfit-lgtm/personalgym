@@ -53,21 +53,23 @@ Heroのボタン文言・料金・時間はplansから生成します。固定�
 | `painPoints` | デスクワーカーのお悩み | DOES THIS SOUND FAMILIAR? |
 | `desiredFuture` | 仕事終わりに目指す暮らし | LIFE AFTER WORK |
 | `integratedApproach` | 整体と運動の組み合わせ | CARE & TRAINING |
-| `benefits` | 選ばれる理由 | WHY CHOOSE US |
+| `benefits` | 前半の担当者紹介 | WHY CHOOSE US |
 | `testimonials` | お客様の声の見出し | REAL STORIES |
-| `services` | サービス一覧 | OUR SERVICES |
+| `services` | サポート内容の補足 | CARE & TRAINING 内 |
 | `pricing` | 料金の見出しと補足 | PLANS & PRICING |
 | `trialFlow` | 初回体験の流れ | HOW IT WORKS |
 | `trainerProfile` | トレーナー紹介の見出し | ABOUT THE TRAINER |
 | `accessAndFAQ` | アクセスとFAQの見出し | ACCESS & FAQ |
 | `finalCTA` | 最後の予約案内 | YOUR LIFE. / AFTER WORK. |
 
-- desiredFuture.items：4件を基本に、料理・街歩き・運動・休日の各写真と文章を登録します。PCは2列、スマホは1列です。増減可能です。
-- integratedApproach.items：整体・トレーニング・組み合わせの3件。最初の2件に写真を設定します。
-- services.items：BODY CARE等4件。labelに英字、titleに日本語、textに説明、imageに写真を登録します。
+- desiredFuture.items：趣味・休日の外出・運動の3件を基本に写真と文章を登録します。3件の場合、PCは3列、スマホは1列です。
+- integratedApproach.items：状態確認、ケアと運動、日常での継続の3段階を登録します。最初の2件のimageは施術・運動写真として使用し、closingには提供プロセスの具体例を登録できます。
+- benefits：titleとbodyに前半の担当者紹介を登録します。氏名・資格・写真はsite-settingsから表示され、詳細プロフィールの情報も同じ設定を使います。itemsは表示に使用しません。
+- services.items：サービスの補足一覧に各項目のtitleを表示します。統合セクション内では短い見出しとしてservicesのtitleを使います。
 - testimonials：表示設定がオンでも、公開対象の口コミが0件なら自動非表示です。
 - trainerProfile：見出しはlp、人物情報はsite-settingsを編集します。実際の人物写真がなければタイポグラフィを表示します。イメージモデルを本人として使いません。
-- pricing：見出しと補足のみ。金額をここに書き込まずplansを編集してください。
+- trialOffer：初回体験の説明、4段階の流れ（items）、入会義務の補足（closing）を登録します。初回体験を表示する場合、trialFlowは独立表示せず、trialOffer.itemsが空の場合の補足に使います。
+- pricing：見出しと補足を登録します。初回価格は初回体験欄に表示し、その欄が非表示の場合は料金欄に表示します。金額・時間はplansを編集してください。
 - 改行はテキストエリアにそのまま入力します。HTML・リッチエディタは使いません。英語の装飾文字・ナビ名・共通UIラベルはデザインとしてコードに固定しています。
 
 ## site-settings
