@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import type { Plan, SiteSettings } from '@/types/cms';
-export const navItems = [['CONCEPT','concept'],['SERVICE','service'],['FEATURES','features'],['PRICE','price'],['ACCESS','access']] as const;
+export const navItems = [['CONCEPT','concept'],['SERVICE','service'],['FEATURES','features'],['PRICE','price'],['ACCESS','access'],['FAQ','faq']] as const;
 type DataLayerWindow = Window & { dataLayer?: Record<string, unknown>[] };
 function track(event:string,params:Record<string,unknown>={}) { const w=window as DataLayerWindow; (w.dataLayer ||= []).push({event,...params}); }
 export function Analytics() {

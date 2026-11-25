@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowUpRight, ArrowRight, Plus, MoveUpRight, Activity, ScanLine, UserRound, MapPin } from 'lucide-react';
+import { ArrowUpRight, ArrowRight, Plus, Activity, ScanLine, UserRound, MapPin } from 'lucide-react';
 import { SiInstagram, SiLine, SiThreads } from 'react-icons/si';
 import type { SiteData, Section, CMSImage, Plan, SiteSettings } from '@/types/cms';
 import { Header, StickyCTA, Analytics } from './Interactions';
@@ -23,7 +23,7 @@ function TrialOffer({data,plan,consult}:{data:SiteData;plan?:Plan;consult?:Plan}
  const steps=s.items.length?s.items:trialFlow.visible?trialFlow.items:[];
  return <section className="trial section" id="trial">
   <div className="trial-intro">
-   <Heading s={s} number="04"/>
+   <Heading s={s} number="07"/>
    {steps.length>0&&<ol className="trial-steps">{steps.map((item,i)=><li key={i}>
     <span aria-hidden="true">{String(i+1).padStart(2,'0')}</span>
     <div>{item.title}{item.text&&<p>{item.text}</p>}</div>
@@ -49,13 +49,15 @@ export function LandingPage({data}:{data:SiteData}) {
  const trialDetails=lp.trialOffer.visible?'#trial':lp.pricing.visible?'#price':undefined;
  const showService=lp.integratedApproach.visible||lp.services.visible;
  const showTrainerProfile=lp.trainerProfile.visible&&Boolean(settings.trainerName);
+ const conceptPhoto=lp.desiredFuture.image??lp.desiredFuture.items.find(item=>item.image)?.image;
+ const conceptCrop=!lp.desiredFuture.image&&conceptPhoto?.url==='/images/lifestyle.png'?lp.desiredFuture.items.findIndex(item=>item.image===conceptPhoto):undefined;
  const qualifications=settings.qualifications.split('\n').filter(Boolean);
- const visible=[lp.hero.visible||lp.desiredFuture.visible?'concept':'',showService?'service':'',lp.benefits.visible?'features':'',lp.pricing.visible?'price':'',lp.accessAndFAQ.visible?'access':''];
+ const visible=[lp.hero.visible||lp.desiredFuture.visible?'concept':'',showService?'service':'',lp.benefits.visible?'features':'',lp.pricing.visible?'price':'',lp.accessAndFAQ.visible?'access':'',lp.accessAndFAQ.visible&&faqs.length?'faq':''];
  return <><Analytics/><Header settings={settings} visible={visible}/><main id="main">
  {lp.hero.visible&&<section className="hero" id="concept">
   <div className="hero-topline"><span>CARE FOR YOUR BODY. LIVE YOUR LIFE.</span><span>TOKYO / ONE-ON-ONE SESSION</span></div>
   <Photo image={lp.hero.image} className="hero-photo" priority/>
-  <div className="hero-display" aria-hidden="true"><span>AFTER</span><span>WORK<span className="period">.</span></span></div>
+  <div className="hero-display" aria-hidden="true"><span>YOUR</span><span>LIFE<span className="period">.</span></span></div>
   <div className="hero-side-label" aria-hidden="true">YOUR BODY.<br/>YOUR TIME.<br/>YOUR LIFE.</div>
   <div className="hero-copy">
    <Eyebrow>{lp.hero.eyebrow}</Eyebrow>
@@ -73,14 +75,29 @@ export function LandingPage({data}:{data:SiteData}) {
   <div className="hero-bottom"><span>整体 × パーソナルトレーニング</span><a href={trialDetails||'#main'}>SCROLL TO EXPLORE <span>↓</span></a></div>
  </section>}
  {lp.hero.visible&&lp.hero.items.length>0&&<div className="feature-strip">{lp.hero.items.map((item,i)=>{const Icon=[Activity,ScanLine,UserRound][i%3];return <div key={i}><Icon size={26} strokeWidth={1.2}/><span><small>0{i+1}</small>{item.title}</span></div>;})}</div>}
- {lp.painPoints.visible&&<section className="pain dark-section section"><div><Heading s={lp.painPoints} number="01"/><div className="pain-mark" aria-hidden="true">AFTER<br/>HOURS<span>?</span></div></div><div className="pain-content"><ul>{lp.painPoints.items.map((item,i)=><li key={i}><span className="list-number">0{i+1}</span><p>{item.title}</p><Plus size={16}/></li>)}</ul><p className="body-copy pain-closing">{lp.painPoints.closing}</p></div></section>}
+ {lp.painPoints.visible&&<section className="pain dark-section section">
+  <div><Heading s={lp.painPoints} number="01"/></div>
+  <div className="pain-content">
+   <ul>{lp.painPoints.items.map((item,i)=><li key={i}>
+    <span className="list-number" aria-hidden="true">{String(i+1).padStart(2,'0')}</span>
+    <div><h3>{item.title}</h3>{item.text&&<p className="body-copy">{item.text}</p>}</div>
+   </li>)}</ul>
+   {lp.painPoints.closing&&<p className="body-copy pain-closing">{lp.painPoints.closing}</p>}
+  </div>
+ </section>}
+ {lp.desiredFuture.visible&&<section className="concept-section section" id={lp.hero.visible?undefined:"concept"}>
+  <Heading s={lp.desiredFuture} number="02"/>
+  <Photo image={conceptPhoto} crop={conceptCrop}/>
+  {lp.desiredFuture.closing&&<p className="body-copy">{lp.desiredFuture.closing}</p>}
+  {lp.desiredFuture.cta&&<CTA data={data} location="future"/>}
+ </section>}
  {showService&&<section className="approach section" id="service">
   {lp.integratedApproach.visible&&<div id="approach">
-   <Heading s={lp.integratedApproach} number="02"/>
+   <Heading s={lp.integratedApproach} number="03"/>
    {lp.integratedApproach.items.slice(0,2).some(item=>item.image)&&<div className="approach-visuals">
     {lp.integratedApproach.items.slice(0,2).map((item,i)=>item.image&&<div key={i}>
      <Photo image={item.image} crop={item.image.url==='/images/services.png'?i:undefined}/>
-     <span className="approach-caption"><span>{i===0?'CARE':'TRAINING'}</span><Plus size={20}/></span>
+     <span className="approach-caption"><span>{i===0?'CARE / 整体':'TRAINING / 運動'}</span><Plus size={20}/></span>
     </div>)}
    </div>}
    <ol className="approach-details">{lp.integratedApproach.items.map((item,i)=><li key={i}>
@@ -90,29 +107,27 @@ export function LandingPage({data}:{data:SiteData}) {
    {lp.integratedApproach.cta&&<CTA data={data} location="approach"/>}
   </div>}
   {lp.services.visible&&<div className="service-summary">
-   {lp.integratedApproach.visible?<h3>{lp.services.title}</h3>:<Heading s={lp.services} number="02"/>}
+   {lp.integratedApproach.visible?<h3>{lp.services.title}</h3>:<Heading s={lp.services} number="03"/>}
    {lp.services.items.length>0&&<ul>{lp.services.items.map((item,i)=><li key={i}>{item.title}</li>)}</ul>}
    {lp.pricing.visible&&<a className="text-link" href="#price">料金を見る <ArrowUpRight size={17}/></a>}
   </div>}
  </section>}
- {lp.benefits.visible&&<section className="benefits trainer-intro section" id="features">
-  <Photo image={settings.trainerPhoto} className="trainer-intro-photo"/>
-  <div className="trainer-intro-copy">
-   <Heading s={lp.benefits} number="03"/>
-   {settings.trainerName&&<p className="trainer-intro-name">担当：{settings.trainerName}{qualifications.length>0&&<>｜{qualifications.join('・')}</>}</p>}
-   <div className="trainer-intro-actions">
-    {showTrainerProfile&&<a className="text-link" href="#trainer">担当者について詳しく見る <ArrowRight size={16}/></a>}
-    {lp.benefits.cta&&<CTA data={data} location="benefits"/>}
-   </div>
-  </div>
- </section>}
- {lp.trialOffer.visible&&<TrialOffer data={data} plan={trial} consult={consult}/>}
- {lp.desiredFuture.visible&&<section className="future section" id={lp.hero.visible?undefined:"concept"}><div className="future-heading"><Heading s={lp.desiredFuture} number="05"/><span className="oversize-arrow" aria-hidden="true">↗</span></div><div className="future-grid">{lp.desiredFuture.items.map((item,i)=><article key={i} className="future-item"><div className="image-wrapper"><Photo image={item.image} crop={item.image?.url==='/images/lifestyle.png'?i:undefined}/><span className="image-index">0{i+1}</span></div><div className="future-item-heading"><h3>{item.title}</h3><MoveUpRight size={23} strokeWidth={1.2}/></div><p>{item.text}</p></article>)}</div><div className="section-closing"><p className="body-copy">{lp.desiredFuture.closing}</p>{lp.desiredFuture.cta&&<CTA data={data} location="future"/>}</div></section>}
  {lp.testimonials.visible&&testimonials.length>0&&<section className="stories section"><Heading s={lp.testimonials}/><div className="story-grid">{testimonials.map(t=><article key={t.id}><Photo image={t.image}/><blockquote>{t.comment}</blockquote><p>{[t.age,t.occupation,t.period].filter(Boolean).join(' / ')}</p></article>)}</div><p className="fine-print">個人の感想であり、効果を保証するものではありません。</p></section>}
+ {lp.benefits.visible&&<section className="benefits section" id="features">
+  <Heading s={lp.benefits} number="04"/>
+  {lp.benefits.items.length>0&&<ul className="reasons-list">{lp.benefits.items.map((item,i)=><li key={i}>
+   <h3>{item.title}</h3>{item.text&&<p className="body-copy">{item.text}</p>}
+  </li>)}</ul>}
+  {showTrainerProfile&&<a className="text-link" href="#trainer">担当者について詳しく見る <ArrowRight size={16}/></a>}
+  {lp.benefits.cta&&<CTA data={data} location="benefits"/>}
+ </section>}
+ {showTrainerProfile&&<section className="trainer section" id="trainer"><div className={`trainer-visual ${settings.trainerPhoto?'':'trainer-typography'}`}>{settings.trainerPhoto?<Photo image={settings.trainerPhoto}/>:<><Eyebrow>BEYOND THE DESK.</Eyebrow><span>MOVE<br/>TOWARD<br/>YOUR<br/>LIFE.</span><p>CARE & TRAINING<br/>FOR YOUR LIFE</p></>}</div><div className="trainer-copy"><Heading s={lp.trainerProfile} number="05"/><h3 className="trainer-name">{settings.trainerName}</h3><ul className="qualifications">{qualifications.map(q=><li key={q}>{q}</li>)}</ul><p className="body-copy">{settings.career}</p><p className="body-copy">{settings.biography}</p><SocialLinks settings={settings}/></div></section>}
  {lp.pricing.visible&&<section className="pricing section" id="price"><Heading s={lp.pricing} number="06"/><div className={showTrialInPricing?"pricing-layout":"pricing-layout pricing-layout-single"}>{showTrialInPricing&&trial&&<div className="pricing-trial"><Eyebrow>FIRST SESSION / 初回限定</Eyebrow><h3>{trial.name}</h3><span className="plan-duration">{trial.duration} MINUTES</span><Price plan={trial} large/>{trial.regularPrice!==undefined&&<p className="regular-price">通常 <s>¥{number(trial.regularPrice)}</s>（税込）</p>}{trial.description&&<p>{trial.description}</p>}{lp.pricing.cta&&<CTA data={data} location="pricing"/>}</div>}<div className="plan-list">{(['regular','ticket','consultation'] as const).map(category=>{const list=plans.filter(p=>p.category===category);return list.length>0&&<div className="plan-group" key={category}><Eyebrow>{({regular:'REGULAR / 通常メニュー',ticket:'TICKETS / 回数券',consultation:'CONSULTATION / 無料相談'})[category]}</Eyebrow>{list.map(plan=><article key={plan.id}><div><h3>{plan.name}</h3><p>{plan.duration}分{plan.sessions?` × ${plan.sessions}回`:''}{plan.sessions?` / 1回あたり${number(plan.price/plan.sessions)}円`:''}</p>{plan.description&&<p>{plan.description}</p>}</div><Price plan={plan}/></article>)}</div>;})}{plans.length===0&&<p>料金・メニューは予約ページでご確認ください。</p>}{lp.trialOffer.visible&&lp.pricing.cta&&(lp.trialOffer.cta?<a className="text-link pricing-trial-link" href="#trial">初回体験の料金・内容を見る <ArrowRight size={16}/></a>:<CTA data={data} location="pricing"/>)}</div></div><p className="pricing-note">{lp.pricing.closing}</p></section>}
+ {lp.trialOffer.visible&&<TrialOffer data={data} plan={trial} consult={consult}/>}
  {lp.trialFlow.visible&&!lp.trialOffer.visible&&<section className="flow section"><Heading s={lp.trialFlow} number="07"/><ol>{lp.trialFlow.items.map((item,i)=><li key={i}><div className="flow-index">0{i+1}<ArrowRight size={20}/></div><h3>{item.title}</h3><p>{item.text}</p></li>)}</ol></section>}
- {showTrainerProfile&&<section className="trainer section" id="trainer"><div className={`trainer-visual ${settings.trainerPhoto?'':'trainer-typography'}`}>{settings.trainerPhoto?<Photo image={settings.trainerPhoto}/>:<><Eyebrow>BEYOND THE DESK.</Eyebrow><span>MOVE<br/>TOWARD<br/>YOUR<br/>LIFE.</span><p>CARE & TRAINING<br/>FOR DESK WORKERS</p></>}</div><div className="trainer-copy"><Heading s={lp.trainerProfile} number={lp.trialFlow.visible&&!lp.trialOffer.visible?"08":"07"}/><h3 className="trainer-name">{settings.trainerName}</h3><ul className="qualifications">{qualifications.map(q=><li key={q}>{q}</li>)}</ul><p className="body-copy">{settings.career}</p><p className="body-copy">{settings.biography}</p><SocialLinks settings={settings}/></div></section>}
- {lp.accessAndFAQ.visible&&<section className="access section" id="access"><Heading s={lp.accessAndFAQ} number={lp.trialFlow.visible&&!lp.trialOffer.visible?"09":"08"}/><div className="access-layout"><div className="access-info"><Eyebrow>LOCATION</Eyebrow><MapPin size={28} strokeWidth={1.3}/><h3>{settings.serviceLocation}</h3><ul>{settings.areas.split('\n').filter(Boolean).map(a=><li key={a}>{a}<ArrowUpRight size={14}/></li>)}</ul><p className="body-copy">{settings.bookingGuidance}</p>{settings.address&&<p>住所：{settings.address}</p>}{settings.nearestStation&&<p>{settings.nearestStation}{settings.walkingMinutes?` 徒歩${settings.walkingMinutes}分`:''}</p>}{settings.hours&&<p>営業時間：{settings.hours}</p>}{settings.phone&&<p>電話：{settings.phone}</p>}<p className="belongings">持ち物：{settings.belongings}</p></div><div className="faq"><Eyebrow>FREQUENTLY ASKED QUESTIONS</Eyebrow>{faqs.map((faq,i)=><details key={faq.id} data-faq={faq.question}><summary><span className="faq-q">Q{String(i+1).padStart(2,'0')}</span><span>{faq.question}</span><Plus size={18}/></summary><p>{faq.answer}</p></details>)}</div></div></section>}
+
+ {lp.accessAndFAQ.visible&&<section className="access section" id="access"><Heading s={lp.accessAndFAQ} number="08"/><div className="access-layout"><div className="access-info"><Eyebrow>LOCATION</Eyebrow><MapPin size={28} strokeWidth={1.3}/><h3>{settings.serviceLocation}</h3><ul>{settings.areas.split('\n').filter(Boolean).map(a=><li key={a}>{a}<ArrowUpRight size={14}/></li>)}</ul><p className="body-copy">{settings.bookingGuidance}</p>{settings.address&&<p>住所：{settings.address}</p>}{settings.nearestStation&&<p>{settings.nearestStation}{settings.walkingMinutes?` 徒歩${settings.walkingMinutes}分`:''}</p>}{settings.hours&&<p>営業時間：{settings.hours}</p>}{settings.phone&&<p>電話：{settings.phone}</p>}<p className="belongings">持ち物：{settings.belongings}</p></div></div></section>}
+ {lp.accessAndFAQ.visible&&faqs.length>0&&<section className="faq section" id="faq"><Eyebrow>FREQUENTLY ASKED QUESTIONS</Eyebrow><h2>初めての方へ。</h2>{faqs.map((faq,i)=><details key={faq.id} data-faq={faq.question}><summary><span className="faq-q">Q{String(i+1).padStart(2,'0')}</span><span>{faq.question}</span><Plus size={18}/></summary><p>{faq.answer}</p></details>)}</section>}
  {lp.finalCTA.visible&&<section className="final dark-section"><div className="final-top"><span>LET’S START WITH YOUR FIRST SESSION.</span><ArrowUpRight size={38} strokeWidth={1}/></div><p className="final-display" aria-hidden="true">{lp.finalCTA.eyebrow}</p><div className="final-content"><div><h2>{lp.finalCTA.title}</h2><p className="body-copy">{lp.finalCTA.body}</p></div><div>{lp.finalCTA.cta&&<CTA data={data} location="final" light/>}{trial&&<p className="final-price">{trial.duration}分 / ¥{number(trial.price)}（税込）</p>}{lp.finalCTA.cta&&consult&&<ConsultationLink plan={consult} bookingUrl={settings.bookingUrl} location="consultation-final"/>}</div></div></section>}
  </main><Footer settings={settings}/><StickyCTA url={settings.bookingUrl} trial={trial}/></>;
 }

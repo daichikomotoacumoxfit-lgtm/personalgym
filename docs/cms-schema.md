@@ -48,23 +48,23 @@ Heroのボタン文言・料金・時間はplansから生成します。固定�
 
 | フィールドID | 日本語のフィールド名 | 対応箇所 |
 |---|---|---|
-| `hero` | トップの文章とメイン写真 | DESK WORKERS / BODY CARE & TRAINING |
+| `hero` | トップの文章とメイン写真 | BODY CARE & PERSONAL TRAINING |
 | `trialOffer` | 初回体験の説明 | FIRST SESSION |
-| `painPoints` | デスクワーカーのお悩み | DOES THIS SOUND FAMILIAR? |
-| `desiredFuture` | 仕事終わりに目指す暮らし | LIFE AFTER WORK |
+| `painPoints` | 身体の変化や運動のお悩み | DOES THIS SOUND FAMILIAR? |
+| `desiredFuture` | 身体づくりのコンセプト | CONCEPT |
 | `integratedApproach` | 整体と運動の組み合わせ | CARE & TRAINING |
-| `benefits` | 前半の担当者紹介 | WHY CHOOSE US |
+| `benefits` | 選ばれる理由 | WHY CHOOSE US |
 | `testimonials` | お客様の声の見出し | REAL STORIES |
 | `services` | サポート内容の補足 | CARE & TRAINING 内 |
 | `pricing` | 料金の見出しと補足 | PLANS & PRICING |
 | `trialFlow` | 初回体験の流れ | HOW IT WORKS |
 | `trainerProfile` | トレーナー紹介の見出し | ABOUT THE TRAINER |
 | `accessAndFAQ` | アクセスとFAQの見出し | ACCESS & FAQ |
-| `finalCTA` | 最後の予約案内 | YOUR LIFE. / AFTER WORK. |
+| `finalCTA` | 最後の予約案内 | MAKE TIME. / LIVE WELL. |
 
-- desiredFuture.items：趣味・休日の外出・運動の3件を基本に写真と文章を登録します。3件の場合、PCは3列、スマホは1列です。
+- desiredFuture：コンセプトのtitle、body、生活イメージ写真1枚（image）を登録します。imageが未登録の場合は既存itemsの最初の写真を使います。
 - integratedApproach.items：状態確認、ケアと運動、日常での継続の3段階を登録します。最初の2件のimageは施術・運動写真として使用し、closingには提供プロセスの具体例を登録できます。
-- benefits：titleとbodyに前半の担当者紹介を登録します。氏名・資格・写真はsite-settingsから表示され、詳細プロフィールの情報も同じ設定を使います。itemsは表示に使用しません。
+- benefits：選ばれる理由をitemsのtitleとtextに登録します。氏名・資格・経歴・本人写真は詳細プロフィールに集約し、site-settingsを参照します。
 - services.items：サービスの補足一覧に各項目のtitleを表示します。統合セクション内では短い見出しとしてservicesのtitleを使います。
 - testimonials：表示設定がオンでも、公開対象の口コミが0件なら自動非表示です。
 - trainerProfile：見出しはlp、人物情報はsite-settingsを編集します。実際の人物写真がなければタイポグラフィを表示します。イメージモデルを本人として使いません。

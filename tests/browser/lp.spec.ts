@@ -3,40 +3,41 @@ const booking='https://komotodaichi.stores.jp/reserve/honten-go0hwc/2909115/book
 test('desktop: complete copy, all CTAs, prices, FAQ events and loaded images', async({page})=>{
  await page.setViewportSize({width:1440,height:1000});
  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
- await page.goto('/');await expect(page.locator('h1')).toHaveText('肩こりに悩む毎日から、 仕事終わりも楽しめる毎日へ。');
- await expect(page.locator('.hero-copy')).toContainText('元SEの国家資格保有トレーナー');
+ await page.goto('/');await expect(page.locator('h1')).toHaveText('これからの人生を、 もっと楽しめる身体へ。');
+ await expect(page.locator('.hero-copy')).toContainText('姿勢や身体のラインの変化');
  await expect(page.locator('.hero-note')).toContainText('初回90分 ¥4,500（税込）');
  await expect(page.locator('.hero-note')).toContainText('体験後の入会義務なし');
  await expect(page.locator('main > section').nth(1)).toHaveClass(/\bpain\b/);
- await expect(page.locator('.pain-content li')).toHaveCount(6);
- await expect(page.locator('.pain-closing')).toHaveText('その日のつらさに向き合うケアと、無理なく始める運動を。');
+ await expect(page.locator('.pain-content h3')).toHaveText(['疲れ・身体の不調','姿勢・身体のライン','運動の続け方']);
  const trialDetails=page.getByRole('link',{name:'体験内容を見る'});
  await expect(trialDetails).toHaveAttribute('href','#trial');
  await trialDetails.click();
  await expect(page).toHaveURL(/#trial$/);
- await expect(page.locator('main > section')).toHaveCount(10);
+ const sections=await page.locator('main > section').evaluateAll(elements=>elements.map(element=>element.id||element.classList[0]));
+ expect(sections).toEqual(['concept','pain','concept-section','service','features','trainer','price','trial','access','faq','final']);
  const service=page.locator('#service');
- await expect(service.getByRole('heading',{name:'今のつらさにケアを。これからの身体に運動を。'})).toBeVisible();
+ await expect(service.getByRole('heading',{name:'今の身体を整え、これからの身体をつくる。'})).toBeVisible();
  await expect(service.locator('.approach-details h3')).toHaveText([
   '今の状態を確認する','必要なケアと運動を組み合わせる','日常でも続けられる方法を考える',
  ]);
  await expect(service.locator('.service-summary li')).toHaveCount(4);
- const intro=page.locator('#service + #features');
- await expect(intro.getByRole('heading',{name:'デスクワークのつらさを知っているから。'})).toBeVisible();
- await expect(intro.getByRole('img',{name:/河本大地/})).toBeVisible();
+ const reasons=page.locator('#service + #features');
+ await expect(reasons.getByRole('heading',{name:'あなたの身体に、あなたに合った方法を。'})).toBeVisible();
+ await expect(reasons.locator('.reasons-list li')).toHaveCount(3);
+ await expect(page.locator('#trainer .trainer-visual img')).toHaveCount(1);
  for(const credential of ['鍼灸師','あん摩マッサージ指圧師','パーソナルトレーナー']){
-  await expect(intro.locator('.trainer-intro-name')).toContainText(credential);
+  await expect(page.locator('#trainer .qualifications')).toContainText(credential);
  }
  const navigation=page.getByRole('navigation',{name:'メインメニュー'});
  await expect(navigation.getByRole('link',{name:'SERVICE'})).toHaveAttribute('href','#service');
  await expect(navigation.getByRole('link',{name:'FEATURES'})).toHaveAttribute('href','#features');
- await intro.getByRole('link',{name:'担当者について詳しく見る'}).click();
+ await reasons.getByRole('link',{name:'担当者について詳しく見る'}).click();
  await expect(page).toHaveURL(/#trainer$/);
  await expect(page.locator('#trainer .trainer-name')).toHaveText('河本大地');
  await expect(page.getByText('REAL STORIES',{exact:true})).toHaveCount(0);
  const trial=page.locator('#trial');
  await expect(trial.locator('.trial-steps li > div')).toHaveText([
-  'カウンセリング','姿勢・動きの確認','整体と運動の体験','今後のご提案',
+  /^カウンセリング/,/^姿勢・動きの確認/,/^整体と運動の体験/,/^今後のご提案/,
  ]);
  await expect(trial.locator('.trial-price')).toContainText('4,500');
  await expect(trial.locator('.trial-price')).toContainText('9,500');
@@ -44,10 +45,9 @@ test('desktop: complete copy, all CTAs, prices, FAQ events and loaded images', a
  await expect(page.locator('#price .pricing-trial')).toHaveCount(0);
  await expect(page.locator('#price .pricing-trial-link')).toHaveAttribute('href','#trial');
  await expect(page.locator('.flow')).toHaveCount(0);
- await expect(page.locator('.future-item h3')).toHaveText([
-  '仕事終わりに、趣味を楽しむ。','休日に、出かける楽しみを。','無理なく、運動を続ける。',
- ]);
- await expect(page.locator('#access .faq details')).toHaveCount(6);
+ await expect(page.locator('.concept-section h2')).toHaveText('身体づくりは、人生を楽しむために。');
+ await expect(page.locator('.concept-section img')).toHaveCount(1);
+ await expect(page.locator('#faq details')).toHaveCount(6);
  for(const link of await page.locator('a[data-booking]:not(.consultation)').all()) {await expect(link).toHaveAttribute('href',booking);await expect(link).toHaveAttribute('target','_blank');await expect(link).toHaveAttribute('rel','noopener noreferrer');}
  const consultationUrl='https://komotodaichi.stores.jp/reserve/honten-go0hwc/2909115/book/course_type?courseCanonicalId=951146';
  for(const container of [trial,page.locator('.final')]){
@@ -81,8 +81,8 @@ for(const width of [375,390,768,1024])test(`responsive ${width}: no overflow, fi
   const steps=await page.locator('.approach-details li').evaluateAll(items=>items.map(item=>item.getBoundingClientRect().top));
   expect(steps[0]).toBeLessThan(steps[1]);
   expect(steps[1]).toBeLessThan(steps[2]);
-  const photo=await page.locator('.trainer-intro-photo').boundingBox();
-  const heading=await page.locator('.trainer-intro h2').boundingBox();
+  const photo=await page.locator('#trainer .trainer-visual').boundingBox();
+  const heading=await page.locator('#trainer h2').boundingBox();
   expect(photo!.y+photo!.height).toBeLessThan(heading!.y);
   for(const selector of ['.hero h1','.hero-actions .cta']){
    const box=await page.locator(selector).boundingBox();
@@ -106,9 +106,9 @@ test('preview metadata, image alternatives and internal destinations', async ({p
  await page.goto('/');
  await expect(page.locator('html')).toHaveAttribute('lang','ja');
  await expect(page.getByRole('heading',{level:1})).toHaveCount(1);
- await expect(page).toHaveTitle('デスクワーカーの肩こり・腰痛に｜整体×パーソナルトレーニング');
+ await expect(page).toHaveTitle('これからの人生を楽しめる身体へ｜整体×パーソナルトレーニング');
  const description=await page.locator('meta[name="description"]').getAttribute('content');
- expect(description).toContain('肩こり・腰痛');
+ expect(description).toContain('姿勢・身体のライン');
  await expect(page.locator('meta[property="og:description"]')).toHaveAttribute('content',description!);
  await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content',/noindex/);
  await expect(page.locator('script[type="application/ld+json"]')).toHaveCount(0);

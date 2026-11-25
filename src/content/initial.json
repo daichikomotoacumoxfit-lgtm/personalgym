@@ -3,26 +3,10 @@
     "hero": {
       "fieldId": "section",
       "visible": true,
-      "eyebrow": "FOR DESK WORKERS / BODY CARE & TRAINING",
-      "title": "肩こりに悩む毎日から、\n仕事終わりも楽しめる毎日へ。",
-      "body": "長時間のデスクワークで、肩や腰がつらい。そんなあなたへ。元SEの国家資格保有トレーナーが、整体とパーソナルトレーニングを組み合わせ、今の身体へのケアとこれからの身体づくりをサポートします。",
-      "items": [
-        {
-          "fieldId": "item",
-          "title": "整体×運動の一体型サポート",
-          "text": ""
-        },
-        {
-          "fieldId": "item",
-          "title": "姿勢・身体の動きをチェック",
-          "text": ""
-        },
-        {
-          "fieldId": "item",
-          "title": "完全予約制のマンツーマン",
-          "text": ""
-        }
-      ],
+      "eyebrow": "BODY CARE & PERSONAL TRAINING",
+      "title": "これからの人生を、\nもっと楽しめる身体へ。",
+      "body": "疲れやすさ、姿勢や身体のラインの変化。運動を始めたいけれど、何から始めればいいか迷っている方へ。\n整体とパーソナルトレーニングを組み合わせ、今の身体と、これから楽しみたいことに合わせてサポートします。",
+      "items": [],
       "closing": "体験後の入会義務なし",
       "cta": true,
       "image": {
@@ -36,28 +20,28 @@
       "fieldId": "section",
       "visible": true,
       "eyebrow": "FIRST SESSION",
-      "title": "まずは90分。今の身体に合うケアと運動を体験。",
-      "body": "お悩みや普段の生活を伺い、姿勢や身体の動きを確認します。その日の状態に合わせた整体とトレーニングを体験し、今後の身体づくりについてご提案します。",
+      "title": "まずは、あなたに合った身体づくりを体験。",
+      "body": "今の身体の状態を知り、自分に合うケアや運動を相談できる初回体験です。",
       "items": [
         {
           "fieldId": "item",
           "title": "カウンセリング",
-          "text": ""
+          "text": "今のお悩みや、これからも楽しみたいことを伺います。"
         },
         {
           "fieldId": "item",
           "title": "姿勢・動きの確認",
-          "text": ""
+          "text": "姿勢や身体の動きを確認し、その日の進め方をお伝えします。"
         },
         {
           "fieldId": "item",
           "title": "整体と運動の体験",
-          "text": ""
+          "text": "体力や状態に合わせた整体と無理のない運動を体験します。"
         },
         {
           "fieldId": "item",
           "title": "今後のご提案",
-          "text": ""
+          "text": "体験を振り返り、日常での運動や今後の進め方をご提案します。"
         }
       ],
       "closing": "体験後に入会する義務はありません。",
@@ -67,93 +51,50 @@
       "fieldId": "section",
       "visible": true,
       "eyebrow": "DOES THIS SOUND FAMILIAR?",
-      "title": "仕事が終わる頃には、\n身体も気持ちもぐったり。",
+      "title": "最近、身体の変化を感じていませんか？",
       "body": "",
       "items": [
         {
           "fieldId": "item",
-          "title": "夕方になると首や肩が重くなり、仕事に集中しづらい",
-          "text": ""
+          "title": "疲れ・身体の不調",
+          "text": "仕事や外出の疲れが残り、肩や腰が気になって、趣味を後回しにすることがある。"
         },
         {
           "fieldId": "item",
-          "title": "長時間座っていると腰がつらく、何度も座り直してしまう",
-          "text": ""
+          "title": "姿勢・身体のライン",
+          "text": "運動不足が気になり、以前と比べて姿勢や身体のラインが変わってきた。"
         },
         {
           "fieldId": "item",
-          "title": "マッサージを受けても、しばらくするとまたつらくなる",
-          "text": ""
-        },
-        {
-          "fieldId": "item",
-          "title": "運動した方がいいと思っているけれど、何から始めればいいかわからない",
-          "text": ""
-        },
-        {
-          "fieldId": "item",
-          "title": "仕事が終わると疲れて、家ではスマホを見て寝るだけ",
-          "text": ""
-        },
-        {
-          "fieldId": "item",
-          "title": "休日も疲れを取ることが優先で、やりたいことが後回しになる",
-          "text": ""
+          "title": "運動の続け方",
+          "text": "運動は始めたいけれど、自分に合う方法が分からず、一人では続けにくい。"
         }
       ],
-      "closing": "その日のつらさに向き合うケアと、無理なく始める運動を。",
+      "closing": "",
       "cta": false
     },
     "desiredFuture": {
       "fieldId": "section",
       "visible": true,
-      "eyebrow": "LIFE AFTER WORK",
-      "title": "仕事終わりも、休日も。好きなことを楽しめる身体へ。",
-      "body": "",
-      "items": [
-        {
-          "fieldId": "item",
-          "title": "仕事終わりに、趣味を楽しむ。",
-          "text": "帰宅後も、料理や趣味など自分の時間を大切にしたい。",
-          "image": {
-            "url": "/images/lifestyle.png",
-            "width": 1536,
-            "height": 1024,
-            "alt": "仕事終わりに、趣味を楽しむ。（イメージ）"
-          }
-        },
-        {
-          "fieldId": "item",
-          "title": "休日に、出かける楽しみを。",
-          "text": "休むだけで終わらず、友人との外出や好きな場所へ。",
-          "image": {
-            "url": "/images/lifestyle.png",
-            "width": 1536,
-            "height": 1024,
-            "alt": "休日に、出かける楽しみを。（イメージ）"
-          }
-        },
-        {
-          "fieldId": "item",
-          "title": "無理なく、運動を続ける。",
-          "text": "自分の体力や生活に合わせて、運動習慣を育てたい。",
-          "image": {
-            "url": "/images/lifestyle.png",
-            "width": 1536,
-            "height": 1024,
-            "alt": "無理なく、運動を続ける。（イメージ）"
-          }
-        }
-      ],
-      "closing": "仕事終わりに、好きなことを楽しめる身体へ。\n自分のやりたいことを楽しめる身体づくりを、一緒に。",
-      "cta": true
+      "eyebrow": "CONCEPT",
+      "title": "身体づくりは、人生を楽しむために。",
+      "body": "仕事を続けること、好きな場所へ旅すること、趣味に夢中になること。あなたがこれからも楽しみたいことを聞きながら、そのための身体づくりを一緒に考えます。",
+      "items": [],
+      "closing": "",
+      "cta": false,
+      "image": {
+        "url": "/images/lifestyle.png",
+        "width": 1536,
+        "height": 1024,
+        "alt": "仕事や趣味を楽しむ暮らしのイメージ"
+      }
     },
     "integratedApproach": {
       "fieldId": "section",
       "visible": true,
       "eyebrow": "CARE & TRAINING",
-      "title": "今のつらさにケアを。これからの身体に運動を。",
-      "body": "肩や腰のつらさ、身体の動き、運動経験は人それぞれ。最初にお話を伺い、姿勢や動きを確認したうえで、整体とトレーニングの内容を調整します。",
+      "title": "今の身体を整え、これからの身体をつくる。",
+      "body": "姿勢や身体の動きを確認し、その日の状態や目標に合わせて整体と運動を組み合わせます。",
       "items": [
         {
           "fieldId": "item",
@@ -183,22 +124,38 @@
           "text": "仕事や生活に合わせて、自宅で取り組める運動や過ごし方も提案します。"
         }
       ],
-      "closing": "例えば、肩まわりの重さが気になる方には、まず困っている動作や身体の動きを確認。状態に合わせたケアと、無理なく取り組める運動を検討します。",
+      "closing": "",
       "cta": false
     },
     "benefits": {
       "fieldId": "section",
       "visible": true,
       "eyebrow": "WHY CHOOSE US",
-      "title": "デスクワークのつらさを知っているから。",
-      "body": "以前はSEとして働き、長時間のデスクワークによる身体のつらさを経験しました。だからこそ、仕事の忙しさや運動を続ける難しさも踏まえ、一人ひとりの生活に合わせたケアと運動を大切にしています。",
-      "items": [],
+      "title": "あなたの身体に、あなたに合った方法を。",
+      "body": "",
+      "items": [
+        {
+          "fieldId": "item",
+          "title": "身体の不安を相談できる",
+          "text": "国家資格を持つ担当者が、体力や過去の怪我への不安を伺います。"
+        },
+        {
+          "fieldId": "item",
+          "title": "理由が分かるから取り組みやすい",
+          "text": "今の状態と、なぜそのケアや運動を選ぶのかを分かりやすく説明します。"
+        },
+        {
+          "fieldId": "item",
+          "title": "自分のペースで続けられる",
+          "text": "仕事や生活の都合に合わせて、ご自宅での運動や続け方も一緒に考えます。"
+        }
+      ],
       "closing": "",
-      "cta": true
+      "cta": false
     },
     "testimonials": {
       "fieldId": "section",
-      "visible": true,
+      "visible": false,
       "eyebrow": "REAL STORIES",
       "title": "身体の変化が、\n毎日の楽しみにつながる。",
       "body": "",
@@ -269,7 +226,7 @@
       "fieldId": "section",
       "visible": true,
       "eyebrow": "PLANS & PRICING",
-      "title": "あなたのペースで、\n無理なく続けられるプランを。",
+      "title": "続け方と費用を、先に確認できます。",
       "body": "",
       "items": [],
       "closing": "まずは初回体験で、サービスが自分に合うかお確かめください。",
@@ -315,7 +272,7 @@
       "fieldId": "section",
       "visible": true,
       "eyebrow": "ABOUT THE TRAINER",
-      "title": "仕事も、好きなことも。\nどちらも楽しめる毎日を支えたい。",
+      "title": "身体を理由に、やりたいことを諦めてほしくない。",
       "body": "",
       "items": [],
       "closing": "",
@@ -325,7 +282,7 @@
       "fieldId": "section",
       "visible": true,
       "eyebrow": "ACCESS & FAQ",
-      "title": "初めての方も、安心してご相談ください。",
+      "title": "日常の中で、無理なく通える場所に。",
       "body": "",
       "items": [],
       "closing": "",
@@ -334,16 +291,16 @@
     "finalCTA": {
       "fieldId": "section",
       "visible": true,
-      "eyebrow": "YOUR LIFE.\nAFTER WORK.",
-      "title": "仕事だけで終わらない毎日を。",
-      "body": "肩や腰のつらさ、姿勢や運動不足のお悩みを、まずは一度お聞かせください。今の状態に合わせたケアと運動を、一緒に考えます。",
+      "eyebrow": "MAKE TIME.\nLIVE WELL.",
+      "title": "これからの人生を、もっと楽しむために。",
+      "body": "まずは今の身体と、これから楽しみたいことをお聞かせください。",
       "items": [],
       "closing": "",
       "cta": true
     }
   },
   "settings": {
-    "concept": "仕事終わりに、好きなことを楽しめる身体へ。",
+    "concept": "これからの人生を、もっと楽しめる身体へ。",
     "bookingUrl": "https://komotodaichi.stores.jp/reserve/honten-go0hwc/2909115/book/course_type?courseCanonicalId=1199180",
     "instagramUrl": "https://www.instagram.com/daichi.komoto.acumoxfit?vrfl=Z2MyaHp6YWl4d2Qy&utm_source=qr",
     "lineUrl": "https://lin.ee/np56EuG",
