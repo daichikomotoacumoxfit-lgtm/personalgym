@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { ArrowUpRight, ArrowRight, Plus, Activity, ScanLine, UserRound, MapPin } from 'lucide-react';
 import { SiInstagram, SiLine, SiThreads } from 'react-icons/si';
 import type { SiteData, Section, CMSImage, Plan, SiteSettings } from '@/types/cms';
+import { FirstView } from './FirstView';
 import { Header, StickyCTA, Analytics } from './Interactions';
 const number = (n:number)=>n.toLocaleString('ja-JP');
 function Eyebrow({children}:{children:React.ReactNode}) {return <p className="eyebrow">{children}</p>;}
@@ -48,33 +49,13 @@ export function LandingPage({data}:{data:SiteData}) {
  const trial=plans.find(p=>p.category==='trial');
  const consult=plans.find(p=>p.category==='consultation');
  const showTrialInPricing=Boolean(trial)&&!lp.trialOffer.visible;
- const trialDetails=lp.trialOffer.visible?'#trial':lp.pricing.visible?'#price':undefined;
  const showService=lp.integratedApproach.visible||lp.services.visible;
  const showTrainerProfile=lp.trainerProfile.visible&&Boolean(settings.trainerName);
  const conceptPhoto=lp.desiredFuture.image??lp.desiredFuture.items.find(item=>item.image)?.image;
  const qualifications=settings.qualifications.split('\n').filter(Boolean);
  const visible=[lp.hero.visible||lp.desiredFuture.visible?'concept':'',showService?'service':'',lp.benefits.visible?'features':'',lp.pricing.visible?'price':'',lp.accessAndFAQ.visible?'access':'',lp.accessAndFAQ.visible&&faqs.length?'faq':''];
  return <><Analytics/><Header settings={settings} visible={visible}/><main id="main">
- {lp.hero.visible&&<section className="hero" id="concept">
-  <div className="hero-topline"><span>CARE FOR YOUR BODY. LIVE YOUR LIFE.</span><span>TOKYO / ONE-ON-ONE SESSION</span></div>
-  <Photo image={lp.hero.image} className="hero-photo" priority/>
-  <div className="hero-display" aria-hidden="true"><span>YOUR</span><span>LIFE<span className="period">.</span></span></div>
-  <div className="hero-side-label" aria-hidden="true">YOUR BODY.<br/>YOUR TIME.<br/>YOUR LIFE.</div>
-  <div className="hero-copy">
-   <Eyebrow>{lp.hero.eyebrow}</Eyebrow>
-   <h1>{lp.hero.title}</h1>
-   <p>{lp.hero.body}</p>
-   <div className="hero-actions">
-    {lp.hero.cta&&<CTA data={data} location="hero"/>}
-    {trialDetails&&<a className="text-link" href={trialDetails}>体験内容を見る <ArrowRight size={16}/></a>}
-   </div>
-   {((lp.hero.cta&&trial)||lp.hero.closing)&&<p className="hero-note">
-    {lp.hero.cta&&trial&&<span>初回{trial.duration}分 ¥{number(trial.price)}（税込）</span>}
-    {lp.hero.closing&&<span>{lp.hero.closing}</span>}
-   </p>}
-  </div>
-  <div className="hero-bottom"><span>整体 × パーソナルトレーニング</span><a href={trialDetails||'#main'}>SCROLL TO EXPLORE <span>↓</span></a></div>
- </section>}
+ {lp.hero.visible&&<FirstView bookingUrl={lp.hero.cta?settings.bookingUrl:undefined}/>}
  {lp.hero.visible&&lp.hero.items.length>0&&<div className="feature-strip">{lp.hero.items.map((item,i)=>{const Icon=[Activity,ScanLine,UserRound][i%3];return <div key={i}><Icon size={26} strokeWidth={1.2}/><span><small>0{i+1}</small>{item.title}</span></div>;})}</div>}
  {lp.painPoints.visible&&<section className="pain dark-section section">
   <div><Heading s={lp.painPoints} number="01"/></div>
