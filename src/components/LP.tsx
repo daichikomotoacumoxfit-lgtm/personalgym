@@ -1,3 +1,4 @@
+import { customerReviews } from '@/content/customer-reviews';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight, ArrowRight, Plus, Activity, ScanLine, UserRound, MapPin } from 'lucide-react';
@@ -112,6 +113,14 @@ export function LandingPage({data}:{data:SiteData}) {
    {lp.pricing.visible&&<a className="text-link" href="#price">料金を見る <ArrowUpRight size={17}/></a>}
   </div>}
  </section>}
+ <section className="stories section customer-reviews" aria-labelledby="customer-reviews-title">
+  <h2 id="customer-reviews-title">お客様の声</h2>
+  <div className="story-grid">{customerReviews.map(review=><article key={review.title}>
+   <h3>{review.title}</h3>
+   <blockquote>「{review.quote}」</blockquote>
+  </article>)}</div>
+  <p className="fine-print">お客様ご本人の感想です。感じ方には個人差があります。</p>
+ </section>
  {lp.testimonials.visible&&testimonials.length>0&&<section className="stories section"><Heading s={lp.testimonials}/><div className="story-grid">{testimonials.map(t=><article key={t.id}><Photo image={t.image}/><blockquote>{t.comment}</blockquote><p>{[t.age,t.occupation,t.period].filter(Boolean).join(' / ')}</p></article>)}</div><p className="fine-print">個人の感想であり、効果を保証するものではありません。</p></section>}
  {lp.benefits.visible&&<section className="benefits section" id="features">
   <Heading s={lp.benefits} number="04"/>
