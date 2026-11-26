@@ -5,6 +5,7 @@ import { Menu, X, ArrowUpRight } from 'lucide-react';
 import type { Plan, SiteSettings } from '@/types/cms';
 export const navItems = [['CONCEPT','concept'],['SERVICE','service'],['FEATURES','features'],['PRICE','price'],['ACCESS','access'],['FAQ','faq']] as const;
 const measurementId = 'G-FLPB5HP42Z';
+const clarityProjectId = 'zjjcphazsa';
 const analyticsEnabled = process.env.NODE_ENV === 'production' && process.env.NEXT_PUBLIC_VERCEL_ENV !== 'preview';
 type DataLayerWindow = Window & {
   dataLayer?: Record<string, unknown>[];
@@ -31,6 +32,12 @@ export function Analytics() {
       window.gtag('config', '${measurementId}');
     `}</Script>
     <Script src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`} strategy="afterInteractive"/>
+    <Script id="clarity-config" strategy="afterInteractive">{`
+      window.clarity = window.clarity || function () {
+        (window.clarity.q = window.clarity.q || []).push(arguments);
+      };
+    `}</Script>
+    <Script src={`https://www.clarity.ms/tag/${clarityProjectId}`} strategy="afterInteractive"/>
   </>;
 }
 export function Header({settings,visible}:{settings:SiteSettings;visible:string[]}) {
