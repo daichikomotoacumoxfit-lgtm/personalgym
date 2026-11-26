@@ -1,10 +1,16 @@
 'use client';
+import Script from 'next/script';
 import { useEffect, useRef, useState } from 'react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import type { Plan, SiteSettings } from '@/types/cms';
 export const navItems = [['CONCEPT','concept'],['SERVICE','service'],['FEATURES','features'],['PRICE','price'],['ACCESS','access'],['FAQ','faq']] as const;
-type DataLayerWindow = Window & { dataLayer?: Record<string, unknown>[] };
-function track(event:string,params:Record<string,unknown>={}) { const w=window as DataLayerWindow; (w.dataLayer ||= []).push({event,...params}); }
+const measurementId = 'G-FLPB5HP42Z';
+const analyticsEnabled = process.env.NODE_ENV === 'production' && process.env.NEXT_PUBLIC_VERCEL_ENV !== 'preview';
+type DataLayerWindow = Window & {
+  dataLayer?: Record<string, unknown>[];
+  gtag?: (command: 'event', event: string, params: Record<string, unknown>) => void;
+};
+function track(event:string,params:Record<string,unknown>={}) { const w=window as DataLayerWindow; (w.dataLayer ||= []).push({event,...params}); if (event !== 'page_view') w.gtag?.('event', event, params); }
 export function Analytics() {
   useEffect(()=> {
     track('page_view',{page_path:window.location.pathname});
@@ -16,7 +22,16 @@ export function Analytics() {
     document.addEventListener('click',click); document.addEventListener('toggle',toggle,true);
     return ()=>{document.removeEventListener('click',click);document.removeEventListener('toggle',toggle,true);};
   },[]);
-  return null;
+  if (!analyticsEnabled) return null;
+  return <>
+    <Script id="ga4-config" strategy="afterInteractive">{`
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { window.dataLayer.push(arguments); };
+      window.gtag('js', new Date());
+      window.gtag('config', '${measurementId}');
+    `}</Script>
+    <Script src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`} strategy="afterInteractive"/>
+  </>;
 }
 export function Header({settings,visible}:{settings:SiteSettings;visible:string[]}) {
   const [open,setOpen]=useState(false);
