@@ -102,3 +102,16 @@
  .customer-reviews .story-grid {gap:12px}
  .customer-reviews .story-grid article {padding:16px}
 }
+
+.pain-content .pain-photo {
+ flex:0 0 clamp(100px,13vw,152px);
+ aspect-ratio:4/3;
+}
+.concept-section .concept-photo img,
+.pain-content .pain-photo img {filter:none}
+@media(max-width:760px){
+ .pain-content li:has(.pain-photo) {column-gap:10px}
+ .pain-content .pain-photo {flex-basis:clamp(70px,24vw,105px)}
+ .pain-content li:has(.pain-photo) h3 {font-size:15px}
+ .pain-content li:has(.pain-photo) .body-copy {font-size:13px;line-height:1.7}
+}
